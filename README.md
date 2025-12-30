@@ -21,29 +21,18 @@ Each row represents a single transaction between two entities:
 ### Data Dictionary (Source: Kaggle):
 
 * `step` - 1 hour unit. Total steps 744 (30 days simulation).
-
 * `type` - Type of transaction (CASH-IN, CASH-OUT, DEBIT, PAYMENT and TRANSFER)
-
 * `amount` - Amount of the transaction in local currency.
-
 * `nameOrig` - Customer who started the transaction
-
-* `oldbalanceOrg` - Initial balance before the transaction
-
-* `newbalanceOrig` - New balance after the transaction
-
 * `nameDest` - Recipient of the transaction
-
-* `oldbalanceDest` - Initial balance recipient before the transaction
-
-* `newbalanceDest` - New balance recipient after the transaction
-
+* `oldbalanceOrg` / `oldbalanceDest` - Initial balances before the transaction
+* `newbalanceOrig` / `newbalanceDest` - New balances after the transaction
 * `isFraud` - This is the transactions made by the fraudulent agents inside the simulation. In this specific dataset the fraudulent behavior of the agents aims to profit by taking control or customers accounts and try to empty the funds by transferring to another account and then cashing out of the system.
-
 * `isFlaggedFraud` - The business model aims to control massive transfers from one account to another and flags illegal attempts. An illegal attempt in this dataset is an attempt to transfer more than 200.000 in a single transaction.
 
 ### Data Dictionary Continued (Engineered Categories)
-
+* `orig_delta` / `dest_delta` - Change in balance after transaction
+* `orig_prev_fraud` / `dest_prev_fraud` - Flag for whether customer previously was flagged for fraud (used for post-hoc analysis)
 
 Entity naming convention:
 
