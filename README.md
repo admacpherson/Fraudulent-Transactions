@@ -70,4 +70,8 @@ Constraints:
 | Fraud (1)          | 485           | 3,769     |
 
 Source: Commit `73c3d00`
----
+
+### Interpretation
+* High recall (0.89) for fraud → model catches most frauds
+* Moderate precision (0.51) → expected tradeoff in fraud detection
+* Very small fraud base rate (~0.3%), so PR-focused metrics matter more than accuracy
