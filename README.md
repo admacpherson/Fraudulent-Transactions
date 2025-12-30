@@ -10,8 +10,6 @@ Key features:
 - [x] Time-aware feature engineering
 - [ ] Retroactive analysis of fraud-linked customers after detection
 
-This repository is intentionally structured to support **exploration first**, followed by **robust modeling** and **post-hoc risk analysis**.
-
 ---
 
 ## Dataset
@@ -47,7 +45,6 @@ Each row represents a single transaction between two entities:
 ### Data Dictionary Continued (Engineered Categories)
 
 
-
 Entity naming convention:
 
 * IDs starting with `C` → Customer
@@ -57,3 +54,20 @@ Constraints:
 
 * Merchants do not have balance information
 * Fraud labels (`isFraud`, `isFlaggedFraud`) represent post-event truth and must not be used for feature creation
+
+## Performance
+
+| Class            | Precision | Recall | F1-Score | Support   |
+| ---------------- | --------- | ------ | -------- | --------- |
+| Non-Fraud (0)    | 1.00      | 1.00   | 1.00     | 1,268,270 |
+| Fraud (1)        | 0.51      | 0.89   | 0.65     | 4,254     |
+| Macro Avg        | 0.76      | 0.94   | 0.82     | 1,272,524 |
+| Weighted Avg     | 1.00      | 1.00   | 1.00     | 1,272,524 |
+
+| Actual \ Predicted | Non-Fraud (0) | Fraud (1) |
+| ------------------ | ------------- | --------- |
+| Non-Fraud (0)      | 1,264,697     | 3,573     |
+| Fraud (1)          | 485           | 3,769     |
+
+Source: Commit `73c3d00`
+---
